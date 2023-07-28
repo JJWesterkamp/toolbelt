@@ -1,6 +1,6 @@
 {
   "name": "@jjwesterkamp/toolbelt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generic utilities for typescript projects",
   "main": "index.ts",
   "scripts": {
