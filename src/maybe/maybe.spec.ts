@@ -1,4 +1,4 @@
-import { fromMaybe, isJust, isNothing, Just, maybe, Nothing } from './maybe.lib'
+import { fromMaybe, isJust, isNothing, Just, maybe, Nothing } from './maybe'
 
 describe('maybe.lib', () => {
     describe('Nothing', () => {

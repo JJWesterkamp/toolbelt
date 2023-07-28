@@ -1,5 +1,5 @@
 import { Fn } from '../types'
-import { isFunction } from '../assertions/assertions.lib'
+import { isFunction } from '../assertions/assertions'
 import { show } from '../utils/utils'
 
 const LEFT_TAG = Symbol('TAG: Either.Left')

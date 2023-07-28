@@ -1,5 +1,5 @@
 import type { Fn } from '../types'
-import { isFunction } from '../assertions/assertions.lib'
+import { isFunction } from '../assertions/assertions'
 import { show } from '../utils/utils'
 
 const JUST_TAG = Symbol('TAG: Maybe.Just')

@@ -3,6 +3,7 @@
     "src/**/*.ts"
   ],
   "exclude": [
+    "src/**/*.spec.ts",
     "src/testrun.ts"
   ],
   "compilerOptions": {
@@ -11,13 +12,14 @@
       "ES2020",
       "DOM"
     ],
-    "module": "CommonJS",
+    "module": "ES2020",
     "moduleResolution": "Node",
     "baseUrl": "./src",
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "outDir": "dist"
   }
 }

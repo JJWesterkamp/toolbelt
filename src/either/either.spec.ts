@@ -1,4 +1,4 @@
-import { Either, Left, Right } from './either.lib'
+import { Either, Left, Right } from './either'
 
 function props({ TAG, value }: Either<any, any>): {
     TAG: symbol

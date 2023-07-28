@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { Observable, of, OperatorFunction } from 'rxjs'
-import { fromMaybe, isJust, isNothing, Just, Maybe, Nothing } from '../maybe/maybe.lib'
+import { fromMaybe, isJust, isNothing, Just, Maybe, Nothing } from '../maybe/maybe'
 import { map as rxMap, distinctUntilChanged as rxDistinctUntilChanged, switchMap as rxSwitchMap } from 'rxjs/operators'
 import { Fn, Fn2 } from '../types'
 

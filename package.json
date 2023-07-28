@@ -4,13 +4,18 @@
   "description": "Generic utilities for typescript projects",
   "main": "index.ts",
   "scripts": {
-    "build": "run-s build:*",
-    "build:esm15": "rm -rf ./esm15 && tsc --outDir esm15 --module ES2015 --listEmittedFiles",
-    "build:commonjs": "rm -rf ./commonjs && tsc --outDir commonjs --module CommonJS --listEmittedFiles",
+    "build": "rm -rf ./dist && tsc --listEmittedFiles",
     "test": "jest"
   },
   "author": "Jeffrey Westerkamp",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./assertions": "./dist/assertions/assertions.js",
+    "./either": "./dist/either/either.js",
+    "./maybe": "./dist/maybe/maybe.js",
+    "./rxjs-maybe": "./dist/rxjs-maybe/rxjs-maybe.js"
+  },
   "peerDependencies": {
     "rxjs": "6.* || 7.* || 8.*"
   },
