@@ -1,2 +1,5 @@
 coverage
 .jest-cache
+esm15
+commonjs
+src/testrun.ts
