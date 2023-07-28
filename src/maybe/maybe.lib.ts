@@ -1,5 +1,6 @@
 import type { Fn } from '../types'
 import { isFunction } from '../assertions/assertions.lib'
+import { show } from '../utils/utils'
 
 const JUST_TAG = Symbol('TAG: Maybe.Just')
 const NOTHING_TAG = Symbol('TAG: Maybe.Nothing')
@@ -23,6 +24,7 @@ export const Nothing: Maybe<never> = Object.freeze({
     fmap: () => Nothing,
     apply: () => Nothing,
     bind: () => Nothing,
+    toString: () => `Nothing`,
 })
 
 /**
@@ -34,6 +36,7 @@ export const Just = <T>(x: T): Maybe<T> => Object.freeze({
     fmap: (f) => Just(f(x)),
     apply: (mf) => expectMaybe(mf).fmap((f) => f(x)),
     bind: (f) => expectMaybe(f(x)),
+    toString: () => `Just (${show(x)})`,
 })
 
 /**

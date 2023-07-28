@@ -1,5 +1,6 @@
 import { Fn } from '../types'
 import { isFunction } from '../assertions/assertions.lib'
+import { show } from '../utils/utils'
 
 const LEFT_TAG = Symbol('TAG: Either.Left')
 const RIGHT_TAG = Symbol('TAG: Either.Right')
@@ -22,6 +23,8 @@ export const Left = <L, R = any>(x: L): Either<L, R> => ({ // Todo: see if the a
     fmap: () => Left(x),
     apply: () => Left(x),
     bind: () => Left(x),
+    // @ts-ignore
+    toString: () => `Left (${show(x)})`,
 })
 
 export const Right = <R, L = any>(x: R): Either<L, R> => ({ // Todo: see if the any defaults don't destroy type safety
@@ -30,6 +33,8 @@ export const Right = <R, L = any>(x: R): Either<L, R> => ({ // Todo: see if the 
     fmap: (f) => Right(f(x)),
     apply: (ef) => expectEither(ef).fmap((f) => f(x)),
     bind: (f) => expectEither(f(x)),
+    // @ts-ignore
+    toString: () => `Right (${show(x)})`,
 })
 
 /**
