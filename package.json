@@ -4,17 +4,30 @@
   "description": "Generic utilities for typescript projects",
   "main": "index.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc --listEmittedFiles",
+    "build": "run-s build:*",
+    "build:esm": "rm -rf ./esm && tsc --module ES2015   --outDir esm --listEmittedFiles",
+    "build:cjs": "rm -rf ./cjs && tsc --module CommonJS --outDir cjs --listEmittedFiles",
     "test": "jest"
   },
   "author": "Jeffrey Westerkamp",
   "license": "MIT",
-  "type": "module",
   "exports": {
-    "./assertions": "./dist/assertions/assertions.js",
-    "./either": "./dist/either/either.js",
-    "./maybe": "./dist/maybe/maybe.js",
-    "./rxjs-maybe": "./dist/rxjs-maybe/rxjs-maybe.js"
+    "./assertions": {
+      "import": "./esm/assertions/assertions.js",
+      "require": "./cjs/assertions/assertions.js"
+    },
+    "./either": {
+      "import": "./esm/either/either.js",
+      "require": "./cjs/either/either.js"
+    },
+    "./maybe": {
+      "import": "./esm/maybe/maybe.js",
+      "require": "./cjs/maybe/maybe.js"
+    },
+    "./rxjs-maybe": {
+      "import": "./esm/rxjs-maybe/rxjs-maybe.js",
+      "require": "./cjs/rxjs-maybe/rxjs-maybe.js"
+    }
   },
   "peerDependencies": {
     "rxjs": "6.* || 7.* || 8.*"
