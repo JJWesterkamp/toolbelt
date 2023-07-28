@@ -1,6 +1,6 @@
 {
   "name": "@jjwesterkamp/toolbelt",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Generic utilities for typescript projects",
   "author": "Jeffrey Westerkamp",
   "license": "MIT",
