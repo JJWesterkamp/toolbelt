@@ -2,8 +2,8 @@ import { Fn } from '../types'
 import { isFunction } from '../assertions/assertions'
 import { show } from '../utils/utils'
 
-const LEFT_TAG = Symbol('TAG: Either.Left')
-const RIGHT_TAG = Symbol('TAG: Either.Right')
+export const LEFT_TAG = Symbol('TAG: Either.Left')
+export const RIGHT_TAG = Symbol('TAG: Either.Right')
 
 export type Either<L, R> = ({
     readonly TAG: typeof LEFT_TAG

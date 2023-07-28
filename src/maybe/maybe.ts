@@ -2,8 +2,8 @@ import type { Fn } from '../types'
 import { isFunction } from '../assertions/assertions'
 import { show } from '../utils/utils'
 
-const JUST_TAG = Symbol('TAG: Maybe.Just')
-const NOTHING_TAG = Symbol('TAG: Maybe.Nothing')
+export const JUST_TAG = Symbol('TAG: Maybe.Just')
+export const NOTHING_TAG = Symbol('TAG: Maybe.Nothing')
 
 export type Maybe<T> = ({
     readonly TAG: typeof JUST_TAG

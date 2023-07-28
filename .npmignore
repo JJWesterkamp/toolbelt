@@ -1,3 +1,6 @@
+.idea
+.vscode
+.jest-cache
 src
 jest.config.ts
 tsconfig.json

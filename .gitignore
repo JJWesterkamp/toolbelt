@@ -1,5 +1,4 @@
 coverage
 .jest-cache
-esm
-cjs
+dist
 src/testrun.ts

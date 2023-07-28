@@ -2,31 +2,49 @@
   "name": "@jjwesterkamp/toolbelt",
   "version": "0.1.2",
   "description": "Generic utilities for typescript projects",
-  "main": "index.ts",
-  "scripts": {
-    "build": "run-s build:*",
-    "build:esm": "rm -rf ./esm && tsc --module ES2015   --outDir esm --listEmittedFiles",
-    "build:cjs": "rm -rf ./cjs && tsc --module CommonJS --outDir cjs --listEmittedFiles",
-    "test": "jest"
-  },
   "author": "Jeffrey Westerkamp",
   "license": "MIT",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && run-s build:*",
+    "build:esm": "tsc --module ES2015   --outDir dist/esm --listEmittedFiles --declaration false",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs --listEmittedFiles --declaration false",
+    "build:types": "tsc --outDir dist/types --emitDeclarationOnly",
+    "test": "jest"
+  },
+  "sideEffects": false,
   "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "node": "./dist/cjs/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
     "./assertions": {
-      "import": "./esm/assertions/assertions.js",
-      "require": "./cjs/assertions/assertions.js"
+      "types": "./dist/types/assertions/assertions.d.ts",
+      "node": "./dist/cjs/assertions/assertions.js",
+      "require": "./dist/cjs/assertions/assertions.js",
+      "default": "./dist/esm/assertions/assertions.js"
     },
     "./either": {
-      "import": "./esm/either/either.js",
-      "require": "./cjs/either/either.js"
+      "types": "./dist/types/either/either.d.ts",
+      "node": "./dist/cjs/either/either.js",
+      "require": "./dist/cjs/either/either.js",
+      "default": "./dist/esm/either/either.js"
     },
     "./maybe": {
-      "import": "./esm/maybe/maybe.js",
-      "require": "./cjs/maybe/maybe.js"
+      "types": "./dist/types/maybe/maybe.d.ts",
+      "node": "./dist/cjs/maybe/maybe.js",
+      "require": "./dist/cjs/maybe/maybe.js",
+      "default": "./dist/esm/maybe/maybe.js"
     },
     "./rxjs-maybe": {
-      "import": "./esm/rxjs-maybe/rxjs-maybe.js",
-      "require": "./cjs/rxjs-maybe/rxjs-maybe.js"
+      "types": "./dist/types/rxjs-maybe/rxjs-maybe.d.ts",
+      "node": "./dist/cjs/rxjs-maybe/rxjs-maybe.js",
+      "require": "./dist/cjs/rxjs-maybe/rxjs-maybe.js",
+      "default": "./dist/esm/rxjs-maybe/rxjs-maybe.js"
     }
   },
   "peerDependencies": {
