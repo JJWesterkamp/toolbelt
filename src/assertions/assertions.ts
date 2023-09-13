@@ -9,6 +9,10 @@ export function isString(x: unknown): x is string {
     return typeof x === 'string'
 }
 
+export function isFunction(x: unknown): x is (...args: any[]) => unknown {
+    return typeof x === 'function'
+}
+
 export function isNumber(x: unknown): x is number {
     return typeof x === 'number'
 }
