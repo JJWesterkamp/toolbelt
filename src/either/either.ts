@@ -66,6 +66,15 @@ export function isRight<R>(m: Either<any, R>): m is Either<any, R> & { TAG: type
     }
 }
 
+export function either<L, R, T>(lTransformer: Fn<L, T>, rTransformer: Fn<R, T>): (e: Either<L, R>) => T {
+    return (e) => {
+        switch (e.TAG) {
+            case LEFT_TAG: return lTransformer(e.value)
+            case RIGHT_TAG: return rTransformer(e.value)
+        }
+    }
+}
+
 function expectEither<T extends Either<any, any>>(x: T): T {
     if (! isLeft(x) && ! isRight(x)) {
         throw new Error('Expected Either instance but got ' + String(x))
