@@ -6,7 +6,8 @@ function props({ TAG, value }: Either<any, any>): {
 } {
     return { TAG, value }
 }
-describe('either.lib', () => {
+
+describe('Either', () => {
     describe('Left', () => {
 
         const fn = jest.fn()
